@@ -6,16 +6,16 @@
 
     type compareFunctionType = (a: number, b:number) => number;
 
-/*  TODO: Convert the sortDescending and sortAscending functions to anonymous 
+/*  TODO: Convert the sortDescending and sortAscending functions to arrow 
     functions. */
 
 /*  sortDescending is a comparison function that tells the sort method how to sort 
     numbers in descending order */
 let sortDescending: compareFunctionType = (a, b) => {
 if (a > b) {
-    return -1;;
+    return -1;
 } else if (b > a) {
-    return 1;;
+    return 1;
 } else {
     return 0;
 }
@@ -67,7 +67,7 @@ console.log(myArray2);
 
 function loanCalculator (principle: number, interestRate: number, months = 12): string {
     let interest: number = interestRate / 1200;   // Calculates the monthly interest rate 
-    let payment; Number;
+    let payment: number;
     payment = principle * interest / (1 - (Math.pow(1/(1 + interest), months)));
     return payment.toFixed(2);
 }
