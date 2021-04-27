@@ -6,7 +6,7 @@
 
     type compareFunctionType = (a: number, b:number) => number;
 
-/*  TODO: Convert the sortDescending and sortAscending functions to anonymous 
+/*  TODO: Convert the sortDescending and sortAscending functions to arrow 
     functions. */
 
 /*  sortDescending is a comparison function that tells the sort method how to sort 

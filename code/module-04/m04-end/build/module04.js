@@ -1,7 +1,7 @@
 "use strict";
 /* Module 4: Develop typed functions using TypeScript
    Lab End  */
-/*  TODO: Convert the sortDescending and sortAscending functions to anonymous
+/*  TODO: Convert the sortDescending and sortAscending functions to arrow
     functions and assign them to variables of the same name. Add types to the
     parameter lists and return values for each function. */
 /* sortDescending is a comparison function that tells the sort method how to sort
