@@ -13,7 +13,7 @@ function intOnlyLoan(loanTerms) {
     // Calculates the monthly payment of an interest only loan
     let intr = loanTerms.interestRate / 1200; // Calculates the Monthly Interest Rate of the loan
     let pmt;
-    pmt = loanTerms.principle * intr;
+    pmt = loanTerms.principal * intr;
     return 'The interest only loan payment is ' + pmt.toFixed(2);
 }
 /*  TODO: Update the convLoan function, this time replacing the three parameters with an
@@ -22,10 +22,10 @@ function convLoan(loanTerms) {
     // Calculates the monthly payment of a conventional loan
     let intr = loanTerms.interestRate / 1200; // Calculates the Monthly Interest Rate of the loan
     let pmt;
-    pmt = loanTerms.principle * intr / (1 - (Math.pow(1 / (1 + intr), loanTerms.numMonths)));
+    pmt = loanTerms.principal * intr / (1 - (Math.pow(1 / (1 + intr), loanTerms.numMonths)));
     return 'The conventional loan payment is ' + pmt.toFixed(2);
 }
-let loan1 = intOnlyLoan({ principle: 30000, interestRate: 5 });
-let loan2 = convLoan({ principle: 30000, interestRate: 5, numMonths: 180 });
+let loan1 = intOnlyLoan({ principal: 30000, interestRate: 5 });
+let loan2 = convLoan({ principal: 30000, interestRate: 5, numMonths: 180 });
 console.log(loan1); //* Returns "The interest only loan payment is 125.00" 
 console.log(loan2); //* Returns "The conventional loan payment is 237.24" 

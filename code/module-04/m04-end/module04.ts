@@ -65,10 +65,10 @@ console.log(myArray2);
 /*  EXERCISE 2
     TODO: Update the LoanCalculator function. */
 
-function loanCalculator (principle: number, interestRate: number, months = 12): string {
+function loanCalculator (principal: number, interestRate: number, months = 12): string {
     let interest: number = interestRate / 1200;   // Calculates the monthly interest rate 
     let payment: number;
-    payment = principle * interest / (1 - (Math.pow(1/(1 + interest), months)));
+    payment = principal * interest / (1 - (Math.pow(1/(1 + interest), months)));
     return payment.toFixed(2);
 }
 

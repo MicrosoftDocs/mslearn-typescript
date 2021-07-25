@@ -64,11 +64,11 @@ console.log(myArray2);
 TODO: Convert the LoanCalc function to TypeScript with strongly typed parameters, variables,
 and return types. Make the numMonths parameter optional but assign it a default value of 12
 months if omitted. */
-function LoanCalc(principle, interestRate, numMonths = 12) {
+function LoanCalc(principal, interestRate, numMonths = 12) {
     let intr = interestRate / 1200; // Calculates the monthly interest rate 
     let pmt;
     Number;
-    pmt = principle * intr / (1 - (Math.pow(1 / (1 + intr), numMonths)));
+    pmt = principal * intr / (1 - (Math.pow(1 / (1 + intr), numMonths)));
     return pmt.toFixed(2);
 }
 let myLoan = LoanCalc(1000, 5);

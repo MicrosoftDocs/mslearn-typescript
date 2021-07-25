@@ -1,6 +1,6 @@
 /*  TODO Update the interface declarations. */
 interface Loan {
-    principle: number,
+    principal: number,
     interestRate: number        //* Interest rate percentage (eg. 14 is 14%)
 }
 interface ConventionalLoan extends Loan {

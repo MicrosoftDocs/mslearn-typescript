@@ -4,7 +4,7 @@ exports.calculateConventionalLoanPayment = exports.calculateInterestOnlyLoanPaym
 /*  TODO Update the calculateInterestOnlyLoanPayment function. */
 function calculateInterestOnlyLoanPayment(loanTerms) {
     var payment;
-    payment = loanTerms.principle * calculateInterestRate(loanTerms.interestRate);
+    payment = loanTerms.principal * calculateInterestRate(loanTerms.interestRate);
     return 'The interest only loan payment is ' + payment.toFixed(2);
 }
 exports.calculateInterestOnlyLoanPayment = calculateInterestOnlyLoanPayment;
@@ -12,7 +12,7 @@ exports.calculateInterestOnlyLoanPayment = calculateInterestOnlyLoanPayment;
 function calculateConventionalLoanPayment(loanTerms) {
     var interest = calculateInterestRate(loanTerms.interestRate);
     var payment;
-    payment = loanTerms.principle * interest / (1 - (Math.pow(1 / (1 + interest), loanTerms.months)));
+    payment = loanTerms.principal * interest / (1 - (Math.pow(1 / (1 + interest), loanTerms.months)));
     return 'The conventional loan payment is ' + payment.toFixed(2);
 }
 exports.calculateConventionalLoanPayment = calculateConventionalLoanPayment;
