@@ -62,9 +62,9 @@ let myArray2 = buildArray(8, 'descending');
 /*  EXERCISE 2
     TODO: Update the LoanCalculator function. */
 
-function loanCalculator (principle, interestRate, months) {
+function loanCalculator (principal, interestRate, months) {
     let interest = interestRate / 1200;   // Calculates the monthly interest rate
     let payment;
-    payment = principle * interest / (1 - (Math.pow(1/(1 + interest), months)));
+    payment = principal * interest / (1 - (Math.pow(1/(1 + interest), months)));
     return payment.toFixed(2);
 }
