@@ -10,7 +10,8 @@ class BuildArray {
 
     // TODO Define the constructor
     constructor (items: number, sortOrder: 'ascending' | 'descending') {
-        this._items = items;
+        // Limit the number of items to 100 if it exceeds 100
+        this._items = Math.min(items, 100);
         this._sortOrder = sortOrder;
     }
 
@@ -18,12 +19,16 @@ class BuildArray {
     get items() {
         return this._items;
     }
+    
     set items(items) {
-        this._items = items;
+        // Limit the number of items to 100 if it exceeds 100
+        this._items = Math.min(items, 100);
     }
+    
     get sortOrder() {
         return this._sortOrder;
     }
+    
     set sortOrder(sortOrder) {
         this._sortOrder = sortOrder;
     }
@@ -35,27 +40,33 @@ class BuildArray {
         } else if (b > a) {
             return 1;
         } else {
-            return 0;}
-     }
+            return 0;
+        }
+    }
+
     private sortAscending = (a: number, b: number) => {
         if (a > b) {
             return 1;
         } else if (b > a) {
             return -1;
         } else {
-            return 0; }
+            return 0;
+        }
     }
+
     buildArray(): number[] {
         let randomNumbers: number[] = [];
         let nextNumber: number;
+        
         for (let counter = 0; counter < this.items; counter++) {
-            nextNumber = Math.ceil(Math.random() * (100 - 1));
+            nextNumber = Math.ceil(Math.random() * 100); // Removed (100 - 1) as it's redundant
             if (randomNumbers.indexOf(nextNumber) === -1) {
                 randomNumbers.push(nextNumber);
             } else {
                 counter--;
             }
         }
+        
         if (this._sortOrder === 'ascending') {
             return randomNumbers.sort(this.sortAscending);
         } else {
@@ -66,8 +77,8 @@ class BuildArray {
 
 /*  TODO: Instantiate the BuildArray objects. */
 
-    let testArray1 = new BuildArray(12, 'ascending');
-    let testArray2 = new BuildArray(8, 'descending');
-    
-    console.log(testArray1.buildArray());
-    console.log(testArray2.buildArray());
+let testArray1 = new BuildArray(12, 'ascending');
+let testArray2 = new BuildArray(8, 'descending');
+
+console.log(testArray1.buildArray());
+console.log(testArray2.buildArray());
