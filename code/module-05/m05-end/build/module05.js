@@ -1,52 +1,73 @@
 "use strict";
-// Comparison function that tells the sort method how to sort numbers in descending order
-let sortDescending2 = (a, b) => {
-    if (a > b) {
-        return -1;
-        ;
+/*  Module 5: Declare and instantiate classes in TypeScript
+    Lab End  */
+/*  EXERCISE 1 */
+class BuildArray {
+    // TODO Define the constructor
+    constructor(items, sortOrder) {
+        // TODO Define the methods.
+        this.sortDescending = (a, b) => {
+            if (a > b) {
+                return -1;
+            }
+            else if (b > a) {
+                return 1;
+            }
+            else {
+                return 0;
+            }
+        };
+        this.sortAscending = (a, b) => {
+            if (a > b) {
+                return 1;
+            }
+            else if (b > a) {
+                return -1;
+            }
+            else {
+                return 0;
+            }
+        };
+        // Limit the number of items to 100 if it exceeds 100
+        this._items = Math.min(items, 100);
+        this._sortOrder = sortOrder;
     }
-    else if (b > a) {
-        return 1;
-        ;
+    // TODO Define the accessors
+    get items() {
+        return this._items;
     }
-    else {
-        return 0;
+    set items(items) {
+        // Limit the number of items to 100 if it exceeds 100
+        this._items = Math.min(items, 100);
     }
-};
-// Comparison function that tells the sort method how to sort numbers in ascending order
-let sortAscending2 = (a, b) => {
-    if (a > b) {
-        return 1;
+    get sortOrder() {
+        return this._sortOrder;
     }
-    else if (b > a) {
-        return -1;
+    set sortOrder(sortOrder) {
+        this._sortOrder = sortOrder;
     }
-    else {
-        return 0;
-    }
-};
-// This function builds an array of unique random numbers containing the number of items based on the number passed to it.
-// The sortOrder parameter determines whether to sort the array in ascending or decending order.
-function buildArray2(items, sortOrder) {
-    let randomNumbers = [];
-    let nextNumber;
-    for (let i = 0; i < items; i++) {
-        nextNumber = Math.floor(Math.random() * (100 - 1)) + 1;
-        if (randomNumbers.indexOf(nextNumber) === -1) {
-            randomNumbers.push(nextNumber);
+    buildArray() {
+        let randomNumbers = [];
+        let nextNumber;
+        for (let counter = 0; counter < this.items; counter++) {
+            nextNumber = Math.ceil(Math.random() * 100); // Removed (100 - 1) as it's redundant
+            if (randomNumbers.indexOf(nextNumber) === -1) {
+                randomNumbers.push(nextNumber);
+            }
+            else {
+                counter--;
+            }
+        }
+        if (this._sortOrder === 'ascending') {
+            return randomNumbers.sort(this.sortAscending);
         }
         else {
-            i--;
+            return randomNumbers.sort(this.sortDescending);
         }
     }
-    if (sortOrder === 'ascending') {
-        return randomNumbers.sort(sortAscending2);
-    }
-    else {
-        return randomNumbers.sort(sortDescending2);
-    }
 }
-let testArray1 = buildArray2(12, 'ascending');
-let testArray2 = buildArray2(8, 'descending');
-console.log(testArray1);
-console.log(testArray2);
+/*  TODO: Instantiate the BuildArray objects. */
+let testArray1 = new BuildArray(12, 'ascending');
+let testArray2 = new BuildArray(8, 'descending');
+console.log(testArray1.buildArray());
+console.log(testArray2.buildArray());
